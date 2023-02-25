@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cookieParser from "cookie-parser";
 import cors from 'cors';
 import newsRoutes from './api/routes/routes.js';
+import adminRoutes from './api/routes/admin.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -30,6 +31,7 @@ app.use(cookieParser());
 app.use(cors());
 
 app.use('/news', newsRoutes);
+app.use('/admin', adminRoutes)
 
 app.use((err,req,res,next) => {
     const errorStatus = err.status || 500;
