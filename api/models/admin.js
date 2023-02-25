@@ -14,10 +14,6 @@ const AdminSchema = new mongoose.Schema({
         type:String,
         required: true
     },
-    photo:{
-        type:String,
-        default:''
-    },
     isAdmin:{
         type:Boolean,
         default: false,
