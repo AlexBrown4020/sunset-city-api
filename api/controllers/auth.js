@@ -1,6 +1,6 @@
 import Admin from '../models/admin.js';
 import bcrypt from 'bcryptjs';
-import { createError } from '../utils/error.js';
+import { createError } from '../utils/createError.js';
 
 export const register  = async (req, res, next) => {
     try {
