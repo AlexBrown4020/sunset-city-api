@@ -1,4 +1,4 @@
-import User from '../models/User.js';
+import Admin from '../models/admin.js';
 import bcrypt from 'bcryptjs';
 import { createError } from '../utils/error.js';
 
@@ -7,14 +7,13 @@ export const register  = async (req, res, next) => {
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(req.body.password, salt);
 
-        const newUser = new User({
+        const newAdmin = new Admin({
             username: req.body.username,
             password: hash,
             email: req.body.email,
         });
-    await newUser.save();
+    await newAdmin.save();
     res.status(201).send('User created.');
-
     } catch(err) {
         next(err);
     }
@@ -22,7 +21,7 @@ export const register  = async (req, res, next) => {
 
 export const login  = async (req, res, next) => {
     try {
-        const user = await User.findOne({username: req.body.username})
+        const user = await Admin.findOne({username: req.body.username})
         if(!user) return next(createError(404, 'User not found'));
 
         const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
