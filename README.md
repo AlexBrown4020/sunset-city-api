@@ -22,6 +22,7 @@ This API is used to handle the admin and news features of the Sunset City landin
 - mongoose
 ### Other:
 - MongoDB
+- Heroku
 
 ## Available Scripts:
 ### `npm start`
